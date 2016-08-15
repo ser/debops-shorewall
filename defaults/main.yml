@@ -1,0 +1,65 @@
+---
+# .. vim: foldmarker=[[[,]]]:foldmethod=marker
+
+# debops.shorewall default variables [[[
+# ========================================
+
+# .. contents:: Sections
+#    :local:
+
+# APT packages [[[
+# ----------------
+
+# .. envvar:: shorewall__base_packages
+
+# List of APT packages to install for ``shorewall`` support.
+shorewall__base_packages: [ 'shorewall' ]
+                                                                   # ]]]
+
+# .. envvar:: shorewall__packages
+# List of additional APT packages to install during ``shorewall`` configuration.
+shorewall__packages: []
+                                                                   # ]]]
+
+                                                                   # ]]]
+
+# Role configuration [[[
+# ----------------------
+
+# .. envvar:: shorewall__enabled [[[
+#
+# Enable or disable Shorewall. By default it disabled, you should enable it when
+# you are sure that you have an emergency access to console, independent of your
+# network connection. Set to ``True`` to enable.
+shorewall__enabled: False
+                                                                   # ]]]
+# .. envvar:: shorewall__config_dir [[[
+#
+# Path where Shorewall config files are stored.
+shorewall__config_dir: '/etc/shorewall'
+                                                                   # ]]]
+# .. envvar:: shorewall__main_config_file [[[
+#
+# Filename of main Shorewall config:
+shorewall__main_config_file: 'shorewall.conf'
+                                                                   # ]]]
+
+                                                                   # ]]]
+# Shorewall configuration [[[
+# ------------------------------
+
+# These lists define Shorewall configuration.
+# See :ref:`environment__ref_variables` for details.
+
+# .. envvar:: shorewall__configs [[[
+#
+# List of files which build shorewall configuration.
+shorewall__configs: []
+                                                                   # ]]]
+# .. envvar:: shorewall__main_config_options [[[
+#
+# List of parameters set in main Shorewall configuration file.
+shorewall__main_config_options: []
+
+                                                                   # ]]]
+                                                                   # ]]]
