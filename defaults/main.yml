@@ -38,11 +38,6 @@ shorewall__enabled: False
 # Path where Shorewall config files are stored.
 shorewall__config_dir: '/etc/shorewall'
                                                                    # ]]]
-# .. envvar:: shorewall__main_config_file [[[
-#
-# Filename of main Shorewall config:
-shorewall__main_config_file: 'shorewall.conf'
-                                                                   # ]]]
 
                                                                    # ]]]
 # Shorewall configuration [[[

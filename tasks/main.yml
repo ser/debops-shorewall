@@ -13,7 +13,7 @@
 - name: Configuring Shorewall defaults
   template:
     src: "etc/default/shorewall.j2"
-    dest: "/etc/default/shorewall"
+    dest: "{{ shorewall__config_dir }}/shorewall"
     owner: "root"
     group: "root"
     mode: 0640
@@ -23,7 +23,7 @@
 - name: Configuring Shorewall main configuration
   template:
     src: "etc/shorewall/shorewall.conf.j2"
-    dest: "/etc/shorewall/shorewall.conf"
+    dest: "{{ shorewall__config_dir }}/shorewall.conf"
     owner: "root"
     group: "root"
     mode: 0640
@@ -33,7 +33,7 @@
 - name: Configuring Shorewall interfaces
   template:
     src: "etc/shorewall/interfaces.j2"
-    dest: "/etc/shorewall/interfaces"
+    dest: "{{ shorewall__config_dir }}/interfaces"
     owner: "root"
     group: "root"
     mode: 0640
@@ -43,7 +43,7 @@
 - name: Configuring Shorewall zones
   template:
     src: "etc/shorewall/zones.j2"
-    dest: "/etc/shorewall/zones"
+    dest: "{{ shorewall__config_dir }}/zones"
     owner: "root"
     group: "root"
     mode: 0640
@@ -53,7 +53,7 @@
 - name: Configuring Shorewall policies
   template:
     src: "etc/shorewall/policy.j2"
-    dest: "/etc/shorewall/policy"
+    dest: "{{ shorewall__config_dir }}/policy"
     owner: "root"
     group: "root"
     mode: 0640
@@ -63,7 +63,7 @@
 - name: Configuring Shorewall rules
   template:
     src: "etc/shorewall/rules.j2"
-    dest: "/etc/shorewall/rules"
+    dest: "{{ shorewall__config_dir }}/rules"
     owner: "root"
     group: "root"
     mode: 0640
@@ -73,7 +73,7 @@
 - name: Configuring Shorewall masquerading
   template:
     src: "etc/shorewall/masq.j2"
-    dest: "/etc/shorewall/masq"
+    dest: "{{ shorewall__config_dir }}/masq"
     owner: "root"
     group: "root"
     mode: 0640
@@ -83,7 +83,17 @@
 - name: Configuring Shorewall nat
   template:
     src: "etc/shorewall/nat.j2"
-    dest: "/etc/shorewall/nat"
+    dest: "{{ shorewall__config_dir }}/nat"
+    owner: "root"
+    group: "root"
+    mode: 0640
+  notify:
+    - 'restart shorewall'
+
+- name: Configuring Shorewall params
+  template:
+    src: "etc/shorewall/params.j2"
+    dest: "{{ shorewall__config_dir }}/params"
     owner: "root"
     group: "root"
     mode: 0640
